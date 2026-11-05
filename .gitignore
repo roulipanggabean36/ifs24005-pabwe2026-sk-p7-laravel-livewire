@@ -38,3 +38,6 @@ phpunit_*.txt
 trivy
 trivy-*
 latest-app.zip
+
+AGENTS.md
+CLAUDE.md
