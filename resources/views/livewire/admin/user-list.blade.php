@@ -1,7 +1,7 @@
 <div class="space-y-4">
     <h1 class="text-2xl font-bold">Daftar Pengguna</h1>
 
-    <input type="text" wire:model.live.debounce.300ms="search" placeholder="Cari nama, username, atau email..."
+    <input aria-label="Cari pengguna" type="text" wire:model.live.debounce.300ms="search" placeholder="Cari nama, username, atau email..."
            class="border rounded px-3 py-2 w-full">
 
     <div class="bg-white rounded shadow overflow-x-auto">

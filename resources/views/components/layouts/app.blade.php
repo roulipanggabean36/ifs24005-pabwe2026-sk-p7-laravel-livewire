@@ -37,5 +37,6 @@
     </main>
 
     @livewireScripts
+<script>document.addEventListener("DOMContentLoaded",function(){var f=function(){document.querySelectorAll(".toastui-editor-pseudo-clipboard").forEach(function(e){e.setAttribute("aria-label","Clipboard editor")})};f();new MutationObserver(f).observe(document.body,{childList:true,subtree:true})});</script>
 </body>
 </html>

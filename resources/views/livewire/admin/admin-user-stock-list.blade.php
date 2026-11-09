@@ -6,9 +6,9 @@
     </div>
 
     <div class="flex flex-wrap gap-2">
-        <input type="text" wire:model.live.debounce.300ms="search" placeholder="Cari nama atau SKU..."
+        <input aria-label="Cari barang" type="text" wire:model.live.debounce.300ms="search" placeholder="Cari nama atau SKU..."
                class="border rounded px-3 py-2 flex-1 min-w-[200px]">
-        <select wire:model.live="statusFilter" class="border rounded px-3 py-2">
+        <select aria-label="Filter status" wire:model.live="statusFilter" class="border rounded px-3 py-2">
             <option value="">Semua status</option>
             @foreach ($statuses as $s)
                 <option value="{{ $s->value }}">{{ $s->label() }}</option>

@@ -8,22 +8,22 @@
         <div class="flex flex-wrap gap-2 text-sm">
             <button wire:click="openCreate" class="bg-blue-600 text-white rounded px-3 py-2 hover:bg-blue-700">+ Tambah</button>
             <button wire:click="openAi" class="bg-purple-600 text-white rounded px-3 py-2 hover:bg-purple-700">Generate AI</button>
-            <button wire:click="export" class="bg-green-600 text-white rounded px-3 py-2 hover:bg-green-700">Export Excel</button>
+            <button wire:click="export" class="bg-green-700 text-white rounded px-3 py-2 hover:bg-green-800">Export Excel</button>
             <button wire:click="downloadTemplate" class="bg-gray-600 text-white rounded px-3 py-2 hover:bg-gray-700">Template</button>
         </div>
     </div>
 
     <form wire:submit="import" class="bg-white rounded shadow p-3 flex flex-wrap items-center gap-2 text-sm">
         <label class="font-medium">Import Excel:</label>
-        <input type="file" wire:model="importFile" accept=".xlsx,.xls">
+        <input aria-label="File impor Excel" type="file" wire:model="importFile" accept=".xlsx,.xls">
         <button type="submit" class="bg-gray-800 text-white rounded px-3 py-1">Import</button>
         @error('importFile') <span class="text-red-600">{{ $message }}</span> @enderror
     </form>
 
     <div class="flex flex-wrap gap-2">
-        <input type="text" wire:model.live.debounce.300ms="search" placeholder="Cari nama atau SKU..."
+        <input aria-label="Cari barang" type="text" wire:model.live.debounce.300ms="search" placeholder="Cari nama atau SKU..."
                class="border rounded px-3 py-2 flex-1 min-w-[200px]">
-        <select wire:model.live="statusFilter" class="border rounded px-3 py-2">
+        <select aria-label="Filter status" wire:model.live="statusFilter" class="border rounded px-3 py-2">
             <option value="">Semua status</option>
             @foreach ($statuses as $s)
                 <option value="{{ $s->value }}">{{ $s->label() }}</option>
@@ -52,9 +52,9 @@
                         <td class="p-3">{{ $stock->sku ?? '-' }}</td>
                         <td class="p-3 text-center">
                             <div class="inline-flex items-center gap-2">
-                                <button wire:click="adjust({{ $stock->id }}, -1)" class="px-2 border rounded hover:bg-gray-100">-</button>
+                                <button aria-label="Kurangi stok" wire:click="adjust({{ $stock->id }}, -1)" class="px-2 border rounded hover:bg-gray-100">-</button>
                                 <span class="min-w-[3rem]">{{ $stock->quantity }} {{ $stock->unit }}</span>
-                                <button wire:click="adjust({{ $stock->id }}, 1)" class="px-2 border rounded hover:bg-gray-100">+</button>
+                                <button aria-label="Tambah stok" wire:click="adjust({{ $stock->id }}, 1)" class="px-2 border rounded hover:bg-gray-100">+</button>
                             </div>
                         </td>
                         <td class="p-3">{{ $stock->price !== null ? 'Rp '.number_format((float) $stock->price, 0, ',', '.') : '-' }}</td>
@@ -83,39 +83,39 @@
 
                 <div>
                     <label class="block text-sm font-medium mb-1">Nama</label>
-                    <input type="text" wire:model="name" class="w-full border rounded px-3 py-2">
+                    <input aria-label="Nama" type="text" wire:model="name" class="w-full border rounded px-3 py-2">
                     @error('name') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-sm font-medium mb-1">SKU</label>
-                        <input type="text" wire:model="sku" class="w-full border rounded px-3 py-2">
+                        <input aria-label="SKU" type="text" wire:model="sku" class="w-full border rounded px-3 py-2">
                         @error('sku') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Satuan</label>
-                        <input type="text" wire:model="unit" class="w-full border rounded px-3 py-2">
+                        <input aria-label="Satuan" type="text" wire:model="unit" class="w-full border rounded px-3 py-2">
                         @error('unit') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Quantity</label>
-                        <input type="number" min="0" wire:model="quantity" class="w-full border rounded px-3 py-2">
+                        <input aria-label="Jumlah" type="number" min="0" wire:model="quantity" class="w-full border rounded px-3 py-2">
                         @error('quantity') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Stok Minimum</label>
-                        <input type="number" min="0" wire:model="min_stock" class="w-full border rounded px-3 py-2">
+                        <input aria-label="Stok minimum" type="number" min="0" wire:model="min_stock" class="w-full border rounded px-3 py-2">
                         @error('min_stock') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
                     </div>
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Harga</label>
-                    <input type="number" min="0" step="0.01" wire:model="price" class="w-full border rounded px-3 py-2">
+                    <input aria-label="Harga" type="number" min="0" step="0.01" wire:model="price" class="w-full border rounded px-3 py-2">
                     @error('price') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Deskripsi (Markdown)</label>
-                    <textarea wire:model="description" rows="4" class="w-full border rounded px-3 py-2"></textarea>
+                    <textarea aria-label="Deskripsi" wire:model="description" rows="4" class="w-full border rounded px-3 py-2"></textarea>
                     @error('description') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
                 </div>
                 <p class="text-xs text-gray-500">Status dihitung otomatis dari quantity dan stok minimum.</p>
@@ -135,7 +135,7 @@
                 <h2 class="text-lg font-bold">Generate Stok dengan AI</h2>
 
                 <form wire:submit="generateAi" class="flex gap-2">
-                    <input type="text" wire:model="aiPrompt" placeholder="Contoh: perlengkapan kantor untuk startup"
+                    <input aria-label="Perintah AI" type="text" wire:model="aiPrompt" placeholder="Contoh: perlengkapan kantor untuk startup"
                            class="flex-1 border rounded px-3 py-2">
                     <button type="submit" class="bg-purple-600 text-white rounded px-4 py-2 hover:bg-purple-700">
                         <span wire:loading.remove wire:target="generateAi">Generate</span>
@@ -148,7 +148,7 @@
                     <div class="border rounded divide-y">
                         @foreach ($aiItems as $i => $item)
                             <label class="flex gap-3 p-3 cursor-pointer" wire:key="ai-{{ $i }}">
-                                <input type="checkbox" wire:model="aiSelected" value="{{ $i }}" class="mt-1">
+                                <input aria-label="Pilih item" type="checkbox" wire:model="aiSelected" value="{{ $i }}" class="mt-1">
                                 <div class="text-sm">
                                     <div class="font-medium">{{ $item['name'] }} <span class="text-gray-500">({{ $item['sku'] ?? '-' }})</span></div>
                                     <div class="text-gray-600">

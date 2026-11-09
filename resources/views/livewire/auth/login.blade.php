@@ -17,7 +17,7 @@
         </div>
 
         <label class="flex items-center gap-2 text-sm">
-            <input type="checkbox" wire:model="remember"> Ingat saya
+            <input aria-label="remember" type="checkbox" wire:model="remember"> Ingat saya
         </label>
 
         <button id="login-submit" type="submit"
