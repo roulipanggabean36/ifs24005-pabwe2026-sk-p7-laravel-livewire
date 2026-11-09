@@ -251,6 +251,7 @@ pipeline {
                         -x ".env.*" \
                         -x "coverage/*" \
                         -x ".trivy-cache/*" \
+                        -x ".scannerwork/*" \
                         -x "bootstrap/cache/*.php" \
                         -x "latest-app.zip" \
                         -x "trivy-results.sarif"
