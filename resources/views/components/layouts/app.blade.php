@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? config('app.name') }}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/app.css">
     @livewireStyles
     <meta name="description" content="Stock Barang: aplikasi untuk mengelola stok barang, mencari, memfilter, dan mengekspor data stok.">
 </head>
