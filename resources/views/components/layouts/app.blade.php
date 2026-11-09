@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? config('app.name') }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css">
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" media="print" onload="this.media='all'">
     @livewireStyles
+    <meta name="description" content="Stock Barang: aplikasi untuk mengelola stok barang, mencari, memfilter, dan mengekspor data stok.">
 </head>
 <body class="bg-gray-100 text-gray-800 min-h-screen">
     @auth
@@ -15,11 +16,11 @@
                 <div class="flex items-center gap-6">
                     <a href="{{ route('home') }}" class="font-bold text-lg">{{ config('app.name') }}</a>
                     @if (auth()->user()->isAdmin())
-                        <a href="{{ route('admin.users') }}" class="text-sm hover:underline">Pengguna</a>
+                        <a href="{{ route('admin.users') }}" class="text-sm underline">Pengguna</a>
                     @else
-                        <a href="{{ route('stocks.index') }}" class="text-sm hover:underline">Stok</a>
+                        <a href="{{ route('stocks.index') }}" class="text-sm underline">Stok</a>
                     @endif
-                    <a href="{{ route('profile') }}" class="text-sm hover:underline">Profil</a>
+                    <a href="{{ route('profile') }}" class="text-sm underline">Profil</a>
                 </div>
                 <div class="flex items-center gap-3 text-sm">
                     <span>{{ auth()->user()->name }} ({{ auth()->user()->role }})</span>

@@ -37,6 +37,6 @@
     </form>
 
     <p class="text-sm mt-4 text-center">
-        Sudah punya akun? <a href="{{ route('login') }}" class="text-blue-600 hover:underline">Masuk</a>
+        Sudah punya akun? <a href="{{ route('login') }}" class="text-blue-600 underline">Masuk</a>
     </p>
 </div>

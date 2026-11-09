@@ -4,7 +4,7 @@
     @endif
 
     <div class="flex items-center justify-between">
-        <a href="{{ route('stocks.index') }}" class="text-blue-600 hover:underline text-sm">&larr; Kembali</a>
+        <a href="{{ route('stocks.index') }}" class="text-blue-600 underline text-sm">&larr; Kembali</a>
         <button wire:click="delete" wire:confirm="Hapus stok ini?" class="text-red-600 hover:underline text-sm">Hapus stok</button>
     </div>
 

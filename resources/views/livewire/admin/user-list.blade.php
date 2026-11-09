@@ -23,7 +23,7 @@
                         <td class="p-3">{{ $u->email }}</td>
                         <td class="p-3 text-center">{{ $u->stocks_count }}</td>
                         <td class="p-3 text-right">
-                            <a href="{{ route('admin.users.stocks', $u) }}" class="text-blue-600 hover:underline">Lihat stok</a>
+                            <a href="{{ route('admin.users.stocks', $u) }}" class="text-blue-600 underline">Lihat stok</a>
                         </td>
                     </tr>
                 @empty

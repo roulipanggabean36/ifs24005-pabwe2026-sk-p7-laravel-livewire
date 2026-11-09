@@ -47,7 +47,7 @@
                 @forelse ($stocks as $stock)
                     <tr class="border-t" wire:key="stock-{{ $stock->id }}">
                         <td class="p-3">
-                            <a href="{{ route('stocks.show', $stock) }}" class="text-blue-600 hover:underline font-medium">{{ $stock->name }}</a>
+                            <a href="{{ route('stocks.show', $stock) }}" class="text-blue-600 underline font-medium">{{ $stock->name }}</a>
                         </td>
                         <td class="p-3">{{ $stock->sku ?? '-' }}</td>
                         <td class="p-3 text-center">

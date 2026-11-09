@@ -1,6 +1,6 @@
 <div class="space-y-4">
     <div>
-        <a href="{{ route('admin.users') }}" class="text-blue-600 hover:underline text-sm">&larr; Kembali</a>
+        <a href="{{ route('admin.users') }}" class="text-blue-600 underline text-sm">&larr; Kembali</a>
         <h1 class="text-2xl font-bold mt-1">Stok milik {{ $user->name }}</h1>
         <p class="text-sm text-gray-500">Tampilan hanya baca (read-only).</p>
     </div>
