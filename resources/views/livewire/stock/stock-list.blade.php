@@ -17,7 +17,7 @@
         <label class="font-medium">Import Excel:</label>
         <input aria-label="File impor Excel" type="file" wire:model="importFile" accept=".xlsx,.xls">
         <button type="submit" class="bg-gray-800 text-white rounded px-3 py-1">Import</button>
-        @error('importFile') <span class="text-red-600">{{ $message }}</span> @enderror
+        @error('importFile') <span class="text-red-700">{{ $message }}</span> @enderror
     </form>
 
     <div class="flex flex-wrap gap-2">
@@ -63,7 +63,7 @@
                         </td>
                         <td class="p-3 text-right space-x-2">
                             <button wire:click="openEdit({{ $stock->id }})" class="text-blue-600 hover:underline">Edit</button>
-                            <button wire:click="delete({{ $stock->id }})" wire:confirm="Hapus stok ini?" class="text-red-600 hover:underline">Hapus</button>
+                            <button wire:click="delete({{ $stock->id }})" wire:confirm="Hapus stok ini?" class="text-red-700 hover:underline">Hapus</button>
                         </td>
                     </tr>
                 @empty
@@ -84,39 +84,39 @@
                 <div>
                     <label class="block text-sm font-medium mb-1">Nama</label>
                     <input aria-label="Nama" type="text" wire:model="name" class="w-full border rounded px-3 py-2">
-                    @error('name') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                    @error('name') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-sm font-medium mb-1">SKU</label>
                         <input aria-label="SKU" type="text" wire:model="sku" class="w-full border rounded px-3 py-2">
-                        @error('sku') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                        @error('sku') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Satuan</label>
                         <input aria-label="Satuan" type="text" wire:model="unit" class="w-full border rounded px-3 py-2">
-                        @error('unit') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                        @error('unit') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Quantity</label>
                         <input aria-label="Jumlah" type="number" min="0" wire:model="quantity" class="w-full border rounded px-3 py-2">
-                        @error('quantity') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                        @error('quantity') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Stok Minimum</label>
                         <input aria-label="Stok minimum" type="number" min="0" wire:model="min_stock" class="w-full border rounded px-3 py-2">
-                        @error('min_stock') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                        @error('min_stock') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                     </div>
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Harga</label>
                     <input aria-label="Harga" type="number" min="0" step="0.01" wire:model="price" class="w-full border rounded px-3 py-2">
-                    @error('price') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                    @error('price') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Deskripsi (Markdown)</label>
                     <textarea aria-label="Deskripsi" wire:model="description" rows="4" class="w-full border rounded px-3 py-2"></textarea>
-                    @error('description') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                    @error('description') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                 </div>
                 <p class="text-xs text-gray-500">Status dihitung otomatis dari quantity dan stok minimum.</p>
 
@@ -142,7 +142,7 @@
                         <span wire:loading wire:target="generateAi">Memproses...</span>
                     </button>
                 </form>
-                @error('aiPrompt') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                @error('aiPrompt') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
 
                 @if (count($aiItems))
                     <div class="border rounded divide-y">

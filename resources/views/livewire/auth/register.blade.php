@@ -5,25 +5,25 @@
         <div>
             <label for="reg-name" class="block text-sm font-medium mb-1">Nama</label>
             <input id="reg-name" type="text" wire:model="name" class="w-full border rounded px-3 py-2">
-            @error('name') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+            @error('name') <p class="text-sm text-red-700 mt-1">{{ $message }}</p> @enderror
         </div>
 
         <div>
             <label for="reg-username" class="block text-sm font-medium mb-1">Username</label>
             <input id="reg-username" type="text" wire:model="username" class="w-full border rounded px-3 py-2">
-            @error('username') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+            @error('username') <p class="text-sm text-red-700 mt-1">{{ $message }}</p> @enderror
         </div>
 
         <div>
             <label for="reg-email" class="block text-sm font-medium mb-1">Email</label>
             <input id="reg-email" type="email" wire:model="email" class="w-full border rounded px-3 py-2">
-            @error('email') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+            @error('email') <p class="text-sm text-red-700 mt-1">{{ $message }}</p> @enderror
         </div>
 
         <div>
             <label for="reg-password" class="block text-sm font-medium mb-1">Password</label>
             <input id="reg-password" type="password" wire:model="password" class="w-full border rounded px-3 py-2">
-            @error('password') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+            @error('password') <p class="text-sm text-red-700 mt-1">{{ $message }}</p> @enderror
         </div>
 
         <div>

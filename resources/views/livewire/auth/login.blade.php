@@ -6,14 +6,14 @@
             <label for="login-username" class="block text-sm font-medium mb-1">Username atau Email</label>
             <input id="login-username" type="text" wire:model="login" autocomplete="username"
                    class="w-full border rounded px-3 py-2">
-            @error('login') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+            @error('login') <p class="text-sm text-red-700 mt-1">{{ $message }}</p> @enderror
         </div>
 
         <div>
             <label for="login-password" class="block text-sm font-medium mb-1">Password</label>
             <input id="login-password" type="password" wire:model="password" autocomplete="current-password"
                    class="w-full border rounded px-3 py-2">
-            @error('password') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+            @error('password') <p class="text-sm text-red-700 mt-1">{{ $message }}</p> @enderror
         </div>
 
         <label class="flex items-center gap-2 text-sm">

@@ -5,7 +5,7 @@
 
     <div class="flex items-center justify-between">
         <a href="{{ route('stocks.index') }}" class="text-blue-600 underline text-sm">&larr; Kembali</a>
-        <button wire:click="delete" wire:confirm="Hapus stok ini?" class="text-red-600 hover:underline text-sm">Hapus stok</button>
+        <button wire:click="delete" wire:confirm="Hapus stok ini?" class="text-red-700 hover:underline text-sm">Hapus stok</button>
     </div>
 
     <div class="grid md:grid-cols-3 gap-4">
@@ -15,12 +15,12 @@
                 <h2 class="font-bold">Cover</h2>
                 @if ($stock->cover_image_path)
                     <img src="{{ asset('storage/'.$stock->cover_image_path) }}" alt="Cover" class="w-full rounded">
-                    <button wire:click="removeCover" class="text-sm text-red-600 hover:underline">Hapus cover</button>
+                    <button wire:click="removeCover" class="text-sm text-red-700 hover:underline">Hapus cover</button>
                 @else
                     <p class="text-sm text-gray-500">Belum ada cover.</p>
                 @endif
                 <input aria-label="Foto sampul" type="file" wire:model="cover" accept="image/*" class="text-sm">
-                @error('cover') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                @error('cover') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                 <button wire:click="uploadCover" class="bg-gray-800 text-white rounded px-3 py-1 text-sm">Unggah</button>
             </div>
 
@@ -42,34 +42,34 @@
             <div>
                 <label class="block text-sm font-medium mb-1">Nama</label>
                 <input aria-label="Nama" type="text" wire:model="name" class="w-full border rounded px-3 py-2">
-                @error('name') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                @error('name') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
             </div>
             <div class="grid grid-cols-2 gap-3">
                 <div>
                     <label class="block text-sm font-medium mb-1">SKU</label>
                     <input aria-label="SKU" type="text" wire:model="sku" class="w-full border rounded px-3 py-2">
-                    @error('sku') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                    @error('sku') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Satuan</label>
                     <input aria-label="Satuan" type="text" wire:model="unit" class="w-full border rounded px-3 py-2">
-                    @error('unit') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                    @error('unit') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Quantity</label>
                     <input aria-label="Jumlah" type="number" min="0" wire:model="quantity" class="w-full border rounded px-3 py-2">
-                    @error('quantity') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                    @error('quantity') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Stok Minimum</label>
                     <input aria-label="Stok minimum" type="number" min="0" wire:model="min_stock" class="w-full border rounded px-3 py-2">
-                    @error('min_stock') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                    @error('min_stock') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
                 </div>
             </div>
             <div>
                 <label class="block text-sm font-medium mb-1">Harga</label>
                 <input aria-label="Harga" type="number" min="0" step="0.01" wire:model="price" class="w-full border rounded px-3 py-2">
-                @error('price') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                @error('price') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
             </div>
 
             <div>
@@ -77,7 +77,7 @@
                 <div wire:ignore>
                     <div id="stock-editor"></div>
                 </div>
-                @error('description') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+                @error('description') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
             </div>
 
             <div class="flex justify-end">

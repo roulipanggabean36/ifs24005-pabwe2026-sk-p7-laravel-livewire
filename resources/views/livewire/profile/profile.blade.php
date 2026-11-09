@@ -16,11 +16,11 @@
             @endif
             <div class="space-y-2 text-sm">
                 <input aria-label="Foto" type="file" wire:model="photo" accept="image/*">
-                @error('photo') <p class="text-red-600">{{ $message }}</p> @enderror
+                @error('photo') <p class="text-red-700">{{ $message }}</p> @enderror
                 <div class="space-x-3">
                     <button wire:click="savePhoto" class="bg-gray-800 text-white rounded px-3 py-1">Unggah</button>
                     @if ($user->profile_photo_path)
-                        <button wire:click="removePhoto" class="text-red-600 hover:underline">Hapus foto</button>
+                        <button wire:click="removePhoto" class="text-red-700 hover:underline">Hapus foto</button>
                     @endif
                 </div>
             </div>
@@ -32,17 +32,17 @@
         <div>
             <label class="block text-sm font-medium mb-1">Nama</label>
             <input aria-label="Nama" type="text" wire:model="name" class="w-full border rounded px-3 py-2">
-            @error('name') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+            @error('name') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
         </div>
         <div>
             <label class="block text-sm font-medium mb-1">Username</label>
             <input aria-label="Username" type="text" wire:model="username" class="w-full border rounded px-3 py-2">
-            @error('username') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+            @error('username') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
         </div>
         <div>
             <label class="block text-sm font-medium mb-1">Email</label>
             <input aria-label="Email" type="email" wire:model="email" class="w-full border rounded px-3 py-2">
-            @error('email') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+            @error('email') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
         </div>
         <button type="submit" class="bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700">Simpan</button>
     </form>
@@ -52,12 +52,12 @@
         <div>
             <label class="block text-sm font-medium mb-1">Password saat ini</label>
             <input aria-label="Password saat ini" type="password" wire:model="current_password" class="w-full border rounded px-3 py-2">
-            @error('current_password') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+            @error('current_password') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
         </div>
         <div>
             <label class="block text-sm font-medium mb-1">Password baru</label>
             <input aria-label="Password baru" type="password" wire:model="password" class="w-full border rounded px-3 py-2">
-            @error('password') <p class="text-sm text-red-600">{{ $message }}</p> @enderror
+            @error('password') <p class="text-sm text-red-700">{{ $message }}</p> @enderror
         </div>
         <div>
             <label class="block text-sm font-medium mb-1">Konfirmasi password baru</label>

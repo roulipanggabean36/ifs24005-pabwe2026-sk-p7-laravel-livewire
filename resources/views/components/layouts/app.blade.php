@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? config('app.name') }}</title>
     <link rel="stylesheet" href="/css/app.css">
+    <style>.tab-item:not(.active){color:#374151!important}</style>
     @livewireStyles
     <meta name="description" content="Stock Barang: aplikasi untuk mengelola stok barang, mencari, memfilter, dan mengekspor data stok.">
 </head>
@@ -25,7 +26,7 @@
                     <span>{{ auth()->user()->name }} ({{ auth()->user()->role }})</span>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="text-red-600 hover:underline">Keluar</button>
+                        <button type="submit" class="text-red-700 hover:underline">Keluar</button>
                     </form>
                 </div>
             </div>
@@ -37,6 +38,6 @@
     </main>
 
     @livewireScripts
-<script>document.addEventListener("DOMContentLoaded",function(){var f=function(){document.querySelectorAll(".tab-item").forEach(function(e){e.removeAttribute("aria-role");e.removeAttribute("aria-selected");e.removeAttribute("aria-label")});document.querySelectorAll(".toastui-editor-pseudo-clipboard").forEach(function(e){e.setAttribute("aria-label","Clipboard editor")})};f();new MutationObserver(f).observe(document.body,{childList:true,subtree:true})});</script>
+<script>document.addEventListener("DOMContentLoaded",function(){var f=function(){document.querySelectorAll("[aria-role]").forEach(function(e){e.removeAttribute("aria-role")});document.querySelectorAll(".tab-item").forEach(function(e){e.removeAttribute("aria-selected");e.removeAttribute("aria-label")});document.querySelectorAll(".toastui-editor-toolbar-icons.more").forEach(function(e){e.setAttribute("aria-label","Lainnya")});document.querySelectorAll(".toastui-editor-pseudo-clipboard").forEach(function(e){e.setAttribute("aria-label","Clipboard editor")})};f();new MutationObserver(f).observe(document.body,{childList:true,subtree:true})});</script>
 </body>
 </html>
