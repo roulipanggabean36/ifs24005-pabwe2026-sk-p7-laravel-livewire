@@ -52,9 +52,9 @@ pipeline {
         }
 
         // ============================================================
-        // BUILD ASSETS (CSS/JS Laravel -> public/build)
+        // TEST
         // ============================================================
-        stage('Build Assets') {
+        stage('Test') {
             agent {
                 docker {
                     image 'node:24-alpine'
@@ -66,49 +66,9 @@ pipeline {
                 sh '''
                     set -e
 
-                    echo "=== Building Frontend Assets ==="
-
-                    npm run build
-
-                    echo "=== Assets Built ==="
-                '''
-            }
-        }
-
-        // ============================================================
-        // TEST (PHP / Laravel)
-        // ============================================================
-        stage('Test') {
-            agent {
-                docker {
-                    image 'php:8.4-cli-alpine'
-                    reuseNode true
-                    args '-u root'
-                }
-            }
-
-            steps {
-                sh '''
-                    set -e
-                    trap 'chown -R 1000:1000 . || true' EXIT
-
-                    echo "=== Preparing PHP ==="
-                    curl -sSLf -o /usr/local/bin/install-php-extensions \
-                        https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions
-                    chmod +x /usr/local/bin/install-php-extensions
-                    install-php-extensions @composer gd zip pcov
-
-                    echo "=== Installing PHP Dependencies ==="
-                    export COMPOSER_ALLOW_SUPERUSER=1
-                    composer install --no-interaction --prefer-dist --no-progress
-
-                    echo "=== Preparing Environment ==="
-                    cp .env.example .env
-                    php artisan key:generate --force
-
                     echo "=== Running Tests with Coverage ==="
-                    mkdir -p coverage
-                    php artisan test --coverage-clover=coverage/clover.xml
+
+                    npx vitest run --coverage
 
                     echo "=== Tests Passed ==="
                 '''
@@ -151,7 +111,6 @@ pipeline {
                         --cache-dir .trivy-cache \
                         --scanners vuln \
                         --severity HIGH,CRITICAL \
-                        --skip-dirs node_modules,vendor \
                         --format sarif \
                         --output trivy-results.sarif \
                         --exit-code 1 \
@@ -251,8 +210,6 @@ pipeline {
                         -x ".env.*" \
                         -x "coverage/*" \
                         -x ".trivy-cache/*" \
-                        -x ".scannerwork/*" \
-                        -x "bootstrap/cache/*.php" \
                         -x "latest-app.zip" \
                         -x "trivy-results.sarif"
 
